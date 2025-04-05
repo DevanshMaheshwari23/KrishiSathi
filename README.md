@@ -15,5 +15,3 @@ This repository contains the source code for the app. The app is designed to hel
 - Flutter: A cross-platform framework for building mobile applications.
 - Dart: The programming language used with Flutter.
 - Machine Learning and its Algorithms such as Decision tree and libraries like Tensorflow
-
-# Krishi-Sarthi
