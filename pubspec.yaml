@@ -1,4 +1,4 @@
-name: agrigenie
+name: krishi_sathi
 description: A new Flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -18,9 +18,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   unicons: ^2.1.1
-  carousel_slider: ^4.2.1
-  velocity_x: ^4.0.0
-  glass: ^1.0.1+1
+  flutter_carousel_widget: ^2.2.0
+  glass_kit: ^3.0.0
   iconsax: ^0.0.8
   markdown: ^7.1.0
   flutter_markdown: ^0.6.15
@@ -28,7 +27,9 @@ dependencies:
   firebase_auth: ^4.6.2
   firebase_app_check: ^0.1.4+2
   firebase_ml_model_downloader: ^0.2.3+3
-  tflite_flutter: ^0.10.1
+  tflite_flutter: ^0.11.0
+  http: ^1.1.0
+  velocity_x: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +45,7 @@ flutter:
   assets:
     - assets/
     - assets/decision_tree_model.joblib
+    - assets/model.tflite
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

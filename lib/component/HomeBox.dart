@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishi_sathi/pages/predictionpage.dart';
 
 class HomeBox extends StatelessWidget {
   const HomeBox({
@@ -21,10 +22,10 @@ class HomeBox extends StatelessWidget {
           width: 40,
           height: 40,
           decoration: const BoxDecoration(
-              shape: BoxShape.circle, color: Color(0xffC4FFBA)),
+              shape: BoxShape.circle, color: AppColors.lightGreen),
           child: Icon(
             icon,
-            color: Colors.black,
+            color: AppColors.secondaryBrown,
           ),
         ),
         const SizedBox(width: 8),
@@ -33,11 +34,18 @@ class HomeBox extends StatelessWidget {
           children: [
             Text(
               headline,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: AppColors.secondaryBrown,
+              ),
             ),
             Text(
               description,
-              style: const TextStyle(fontSize: 15),
+              style: const TextStyle(
+                fontSize: 15,
+                color: AppColors.primaryGreen,
+              ),
             )
           ],
         )

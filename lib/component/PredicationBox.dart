@@ -1,5 +1,6 @@
-import 'package:agrigenie/component/HomeBox.dart';
-import 'package:agrigenie/pages/predictionpage.dart';
+import 'package:krishi_sathi/component/HomeBox.dart';
+import 'package:krishi_sathi/pages/predictionpage.dart';
+import 'package:krishi_sathi/services/language_service.dart';
 import 'package:flutter/material.dart';
 
 class PredicationBox extends StatelessWidget {
@@ -9,12 +10,14 @@ class PredicationBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final languageService = LanguageService();
+
     return Container(
       padding: const EdgeInsets.all(20),
       height: 230,
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.07),
@@ -24,7 +27,7 @@ class PredicationBox extends StatelessWidget {
           ],
           border: Border.all(
             width: 1,
-            color: const Color(0xff14FF00),
+            color: AppColors.primaryGreen,
           ),
           borderRadius: BorderRadius.circular(11)),
       child: Column(
@@ -69,21 +72,22 @@ class PredicationBox extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PredictionPage(),
+                    builder: (context) => const PredictionPage(),
                   ),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff00A45F),
+                backgroundColor: AppColors.primaryGreen,
+                foregroundColor: AppColors.white,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: const Text(
-                'Predict Crop',
-                style: TextStyle(
-                    color: Colors.white,
+              child: Text(
+                languageService.predictCrop,
+                style: const TextStyle(
+                    color: AppColors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 17),
               ),

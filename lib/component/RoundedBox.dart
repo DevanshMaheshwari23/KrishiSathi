@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishi_sathi/pages/predictionpage.dart';
 
 class RoundedBox extends StatelessWidget {
   const RoundedBox({super.key, required this.child});
@@ -7,11 +8,10 @@ class RoundedBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: child,
       padding: const EdgeInsets.all(16),
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.07),
@@ -21,9 +21,10 @@ class RoundedBox extends StatelessWidget {
           ],
           border: Border.all(
             width: 1,
-            color: const Color(0xff14FF00),
+            color: AppColors.primaryGreen,
           ),
           borderRadius: BorderRadius.circular(11)),
+      child: child,
     );
   }
 }

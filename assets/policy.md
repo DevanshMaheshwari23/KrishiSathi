@@ -1,8 +1,6 @@
+## Privacy Policy for Krishi Sathi App
 
-## Privacy Policy for Agrigenie App
-
-
-At Agrigenie, we prioritize the privacy and security of our users. This Privacy Policy outlines how we collect, use, and protect personal information through our mobile application. By using Agrigenie, you agree to the terms and practices described below.
+At Krishi Sathi, we prioritize the privacy and security of our users. This Privacy Policy outlines how we collect, use, and protect personal information through our mobile application. By using Krishi Sathi, you agree to the terms and practices described below.
 
 #### Information Collection:
 - Personal Information: We may collect certain personal information, such as your name, contact details, location, and preferences, when you create an account or use certain features of the app.
@@ -10,7 +8,7 @@ At Agrigenie, we prioritize the privacy and security of our users. This Privacy 
 
 #### Use of Information:
 - Personal Information: We may use your personal information to provide and improve our services, personalize your experience, communicate with you, and respond to your inquiries.
-- Non-Personal Information: Non-personal information is used to analyze app usage patterns, identify trends, and enhance the functionality and performance of Agrigenie.
+- Non-Personal Information: Non-personal information is used to analyze app usage patterns, identify trends, and enhance the functionality and performance of Krishi Sathi.
 
 #### Data Security:
 We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.
@@ -25,12 +23,12 @@ We do not sell, rent, or lease your personal information to third parties. We ma
 We may disclose your information if required to do so by law, court order, or other legal processes, or if we believe such disclosure is necessary to protect our rights, users' safety, or to comply with applicable laws and regulations.
 
 #### Children's Privacy:
-Agrigenie is not intended for use by individuals under the age of 13. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected personal information from a child, we will promptly delete it from our records.
+Krishi Sathi is not intended for use by individuals under the age of 13. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected personal information from a child, we will take steps to delete it promptly.
 
 #### Changes to the Privacy Policy:
 We may update this Privacy Policy from time to time. The revised policy will be posted on our website or within the app, and the date of the last update will be indicated. We encourage you to review the Privacy Policy periodically for any changes.
 
 #### Contact Us:
-If you have any questions, concerns, or requests regarding this Privacy Policy or the privacy practices of Agrigenie, please contact us at help.agrigenie@gmail.com
+If you have any questions, concerns, or requests regarding this Privacy Policy or the privacy practices of Krishi Sathi, please contact us at help.krishisathi@gmail.com
 
-By using Agrigenie, you acknowledge that you have read, understood, and agree to this Privacy Policy.
+By using Krishi Sathi, you acknowledge that you have read, understood, and agree to this Privacy Policy.

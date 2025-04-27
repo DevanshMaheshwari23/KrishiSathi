@@ -1,6 +1,7 @@
-import 'package:agrigenie/pages/homepage.dart';
-import 'package:agrigenie/pages/predictionpage.dart';
-import 'package:agrigenie/pages/profilepage.dart';
+import 'package:krishi_sathi/pages/homepage.dart';
+import 'package:krishi_sathi/pages/predictionpage.dart';
+import 'package:krishi_sathi/pages/profilepage.dart';
+import 'package:krishi_sathi/services/language_service.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -14,6 +15,20 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int selectedPage = 0;
   final pages = [const HomePage(), const PredictionPage(), const ProfilePage()];
+  final LanguageService _languageService = LanguageService();
+
+  @override
+  void initState() {
+    super.initState();
+    _languageService.languageChangeNotifier.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +38,21 @@ class _MainNavigationState extends State<MainNavigation> {
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: selectedPage,
-          fixedColor: const Color(0xff00A45F),
+          fixedColor: const Color(0xFF5F8D4E),
           unselectedItemColor: const Color(0xFF757575),
           onTap: (position) {
             setState(() {
               selectedPage = position;
             });
           },
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Iconsax.home), label: "Home"),
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Iconsax.health), label: "Predict"),
-            BottomNavigationBarItem(icon: Icon(Iconsax.user), label: "Account")
+                icon: const Icon(Iconsax.home), label: _languageService.home),
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.health),
+                label: _languageService.predict),
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.user), label: _languageService.account)
           ]),
     );
   }

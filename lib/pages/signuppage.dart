@@ -1,8 +1,10 @@
-import 'package:agrigenie/firebase/auth.dart';
+import 'package:krishi_sathi/firebase/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
 class AgricultureSignPage extends StatefulWidget {
+  const AgricultureSignPage({super.key});
+
   @override
   State<AgricultureSignPage> createState() => _AgricultureSignPageState();
 }
@@ -35,7 +37,7 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/bg.jpg'),
             fit: BoxFit.cover,
@@ -52,7 +54,7 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
                   'assets/logo.png',
                   height: 150,
                 ),
-                SizedBox(height: 40.0),
+                const SizedBox(height: 40.0),
                 TextFormField(
                   controller: _controllerEmail,
                   validator: (value) {
@@ -67,7 +69,7 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
                     fillColor: Colors.white.withOpacity(0.7),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextFormField(
                   controller: _controllerPassword,
                   validator: (value) {
@@ -83,7 +85,7 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
                   ),
                   obscureText: true,
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextFormField(
                   controller: _controllerPassword,
                   validator: (value) {
@@ -99,7 +101,7 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
                   ),
                   obscureText: true,
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 SizedBox(
                   width: double.infinity,
                   height: 60,
@@ -121,21 +123,21 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
                               strokeWidth: 2,
                             ),
                           )
-                        : Text(
+                        : const Text(
                             'Register',
                             style: TextStyle(color: Colors.white),
                           ),
                   ),
                 ),
-                SizedBox(height: 20.0),
-                Text(
+                const SizedBox(height: 20.0),
+                const Text(
                   'or login with',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -143,16 +145,16 @@ class _AgricultureSignPageState extends State<AgricultureSignPage> {
                       onPressed: () {
                         // Implement login with Google functionality here
                       },
-                      icon: Icon(UniconsLine.google),
-                      label: Text('Google'),
+                      icon: const Icon(UniconsLine.google),
+                      label: const Text('Google'),
                     ),
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                     ElevatedButton.icon(
                       onPressed: () {
                         // Implement login with Facebook functionality here
                       },
-                      icon: Icon(UniconsLine.facebook_f),
-                      label: Text('Facebook'),
+                      icon: const Icon(UniconsLine.facebook_f),
+                      label: const Text('Facebook'),
                     ),
                   ],
                 ),

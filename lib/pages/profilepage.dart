@@ -1,12 +1,11 @@
-import 'package:agrigenie/component/RoundedBox.dart';
-import 'package:agrigenie/pages/cropinfopage.dart';
-import 'package:agrigenie/pages/loginpage.dart';
-import 'package:agrigenie/pages/privacypolicy.dart';
-import 'package:agrigenie/pages/termsandcondition.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:krishi_sathi/component/RoundedBox.dart';
+import 'package:krishi_sathi/pages/notificationpage.dart';
+import 'package:krishi_sathi/pages/privacypolicy.dart';
+import 'package:krishi_sathi/pages/termsandcondition.dart';
+import 'package:krishi_sathi/pages/predictionpage.dart';
+import 'package:krishi_sathi/services/language_service.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -16,225 +15,247 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  // For language selection - get from language service
+  final LanguageService _languageService = LanguageService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         scrolledUnderElevation: 0,
         elevation: 0,
-        backgroundColor: const Color(0xffffffff),
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
+        backgroundColor: AppColors.primaryGreen,
         centerTitle: true,
         title: Image.asset(
-          'assets/appbarlogo.png', // Replace with your logo image path
+          'assets/appbarlogo.png',
           height: 30,
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications, color: AppColors.white),
             onPressed: () {
-              // Handle notification button press
+              Navigator.pushNamed(context, '/notifications');
             },
           ),
         ],
       ),
       body: SingleChildScrollView(
-        child: VStack(
-          [
-            RoundedBox(
-              child: VStack([
-                Center(
-                  child: Container(
-                    height: 80,
-                    width: 80,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xff14FF00),
-                    ),
-                  ),
-                ).px20().py20(),
-                const ProfilePageTexts(),
-                ListTile(
-                    title: const Text(
-                      'Email',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    subtitle: Container(
-                      height: 40,
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          color: const Color(0xffC4FFBA),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: const Text(
-                        'pawanbhayde721@gmal.com',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    )),
-                ListTile(
-                    title: const Text(
-                      'Mobile no.',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    subtitle: Container(
-                      height: 40,
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          color: const Color(0xffC4FFBA),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: const Text(
-                        '9146618971',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    )),
-              ]),
-            ),
-            const SizedBox(height: 20),
-            RoundedBox(
-              child: VStack(
-                [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CropInfoPage(),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              // Language selection box
+              RoundedBox(
+                child: Column(
+                  children: [
+                    Center(
+                      child: Text(
+                        _languageService.appSettings,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.secondaryBrown,
                         ),
-                      );
-                    },
-                    child: const ListTile(
-                      leading: Icon(Iconsax.setting),
-                      title: Text(
-                        "Setting",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PrivacyPolicyPage(),
+                    const SizedBox(height: 30),
+                    Text(
+                      _languageService.selectLanguage,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.secondaryBrown,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // English option
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _languageService.setLanguage(true);
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 12),
+                            decoration: BoxDecoration(
+                              color: _languageService.isEnglish
+                                  ? AppColors.primaryGreen
+                                  : AppColors.lightGreen,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: AppColors.primaryGreen,
+                                width: 2,
+                              ),
+                            ),
+                            child: Text(
+                              'English',
+                              style: TextStyle(
+                                color: _languageService.isEnglish
+                                    ? AppColors.white
+                                    : AppColors.primaryGreen,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
-                      );
-                    },
-                    child: const ListTile(
-                      leading: Icon(Iconsax.shield),
-                      title: Text(
-                        "Privacy Policy",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TermsAndConditionsPage(),
+                        // Hindi option
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _languageService.setLanguage(false);
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 12),
+                            decoration: BoxDecoration(
+                              color: !_languageService.isEnglish
+                                  ? AppColors.primaryGreen
+                                  : AppColors.lightGreen,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: AppColors.primaryGreen,
+                                width: 2,
+                              ),
+                            ),
+                            child: Text(
+                              'हिंदी',
+                              style: TextStyle(
+                                color: !_languageService.isEnglish
+                                    ? AppColors.white
+                                    : AppColors.primaryGreen,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
-                      );
-                    },
-                    child: const ListTile(
-                      leading: Icon(Iconsax.security_user),
-                      title: Text(
-                        "Terms and conditions",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
+                      ],
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AgricultureLoginPage(),
+                    const SizedBox(height: 20),
+                    // Language status text
+                    Center(
+                      child: Text(
+                        _languageService.currentLanguage,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: AppColors.secondaryBrown,
+                          fontWeight: FontWeight.w500,
                         ),
-                      );
-                    },
-                    child: const ListTile(
-                      leading: Icon(Iconsax.logout),
-                      title: Text(
-                        "Sign out",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
-                  )
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ).p16(),
-      ),
-    );
-  }
-}
-
-class SignOutAlertDialog extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: AlertDialog(
-        title: const Text('Sign Out'),
-        content: const Text('Are you sure you want to sign out?'),
-        actions: [
-          ElevatedButton(
-            child: const Text('Cancel'),
-            onPressed: () {
-              Navigator.of(context).pop(); // Close the alert dialog
-            },
+              const SizedBox(height: 20),
+              // Information section
+              RoundedBox(
+                child: Column(
+                  children: [
+                    // Privacy Policy
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PrivacyPolicyPage(),
+                          ),
+                        );
+                      },
+                      child: ListTile(
+                        leading: const Icon(
+                          Iconsax.shield,
+                          color: AppColors.secondaryBrown,
+                        ),
+                        title: Text(
+                          _languageService.privacyPolicy,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: AppColors.secondaryBrown,
+                          ),
+                        ),
+                      ),
+                    ),
+                    // Terms and conditions
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const TermsAndConditionsPage(),
+                          ),
+                        );
+                      },
+                      child: ListTile(
+                        leading: const Icon(
+                          Iconsax.security_user,
+                          color: AppColors.secondaryBrown,
+                        ),
+                        title: Text(
+                          _languageService.termsAndConditions,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: AppColors.secondaryBrown,
+                          ),
+                        ),
+                      ),
+                    ),
+                    // About the app
+                    GestureDetector(
+                      onTap: () {
+                        // Show About Dialog
+                        showAboutDialog(
+                          context: context,
+                          applicationName: 'Krishi Sathi',
+                          applicationVersion: '1.0.0',
+                          applicationIcon: Image.asset(
+                            'assets/appbarlogo.png',
+                            height: 50,
+                            width: 50,
+                          ),
+                          applicationLegalese: '© 2023 Krishi Sathi',
+                          children: [
+                            const SizedBox(height: 20),
+                            Text(
+                              _languageService.isEnglish
+                                  ? 'Krishi Sathi is an application designed to help farmers predict suitable crops for their land based on soil and environmental conditions.'
+                                  : 'कृषि साथी एक ऐसा एप्लिकेशन है जो किसानों को मिट्टी और पर्यावरणीय स्थितियों के आधार पर उनकी भूमि के लिए उपयुक्त फसलों की भविष्यवाणी करने में मदद करने के लिए डिज़ाइन किया गया है।',
+                              style: const TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        );
+                      },
+                      child: ListTile(
+                        leading: const Icon(
+                          Iconsax.info_circle,
+                          color: AppColors.secondaryBrown,
+                        ),
+                        title: Text(
+                          _languageService.about,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: AppColors.secondaryBrown,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          ElevatedButton(
-            child: const Text('Sign Out'),
-            onPressed: () {
-              Future<void> _signOut() async {
-                await FirebaseAuth.instance.signOut();
-              }
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ProfilePageTexts extends StatelessWidget {
-  const ProfilePageTexts({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-        title: const Text(
-          'Full Name',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
         ),
-        subtitle: Container(
-          height: 40,
-          width: double.infinity,
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: const Color(0xffC4FFBA),
-              borderRadius: BorderRadius.circular(10)),
-          child: const Text(
-            'Pawan Bhayde',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-          ),
-        ));
+      ),
+    );
   }
 }

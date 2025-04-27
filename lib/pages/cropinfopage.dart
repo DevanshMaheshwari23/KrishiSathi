@@ -1,11 +1,10 @@
-import 'package:agrigenie/component/RoundedBox.dart';
-import 'package:agrigenie/data/cropdata.dart';
-import 'package:agrigenie/pages/homepage.dart';
+import 'package:krishi_sathi/component/RoundedBox.dart';
+import 'package:krishi_sathi/services/language_service.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CropInfoPage extends StatelessWidget {
-  CropInfoPage({Key? key});
+  const CropInfoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +32,13 @@ class CropInfoPage extends StatelessWidget {
         centerTitle: true,
         title: Image.asset(
           'assets/appbarlogo.png', // Replace with your logo image path
-          height: 30,
+          height: 45,
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
             onPressed: () {
-              // Handle notification button press
+              Navigator.pushNamed(context, '/notifications');
             },
           ),
         ],
@@ -52,8 +51,7 @@ class CropInfoPage extends StatelessWidget {
             decoration: BoxDecoration(
               image: const DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg"),
+                image: AssetImage('assets/appbarlogo.png'),
               ),
               boxShadow: [
                 BoxShadow(
@@ -85,13 +83,80 @@ class CropInfoPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
             ],
-          )), 
-          Text(
+          )),
+          const Text(
             "Recommended Fertilisers",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ).p16(),
-          const RecommandedFertilisers(),
+          const SimpleFertilizersList(),
         ]).p16(),
+      ),
+    );
+  }
+}
+
+// Simplified replacement for RecommandedFertilisers
+class SimpleFertilizersList extends StatelessWidget {
+  const SimpleFertilizersList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final fertilizers = [
+      {"name": "NPK", "image": "assets/appbarlogo.png"},
+      {"name": "Urea", "image": "assets/appbarlogo.png"},
+      {"name": "Phosphorus", "image": "assets/appbarlogo.png"},
+    ];
+
+    return SizedBox(
+      height: 160,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: fertilizers.length,
+        itemBuilder: (context, index) {
+          final fertilizer = fertilizers[index];
+          return Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Container(
+              width: 140,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: const Color(0xff14FF00)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      fertilizer["image"]!,
+                      height: 100,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    fertilizer["name"]!,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,11 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
 // ignore: must_be_immutable
 class CarouselWithDotsPage extends StatefulWidget {
   List<String> imgList;
 
-  CarouselWithDotsPage({required this.imgList});
+  CarouselWithDotsPage({super.key, required this.imgList});
 
   @override
   _CarouselWithDotsPageState createState() => _CarouselWithDotsPageState();
@@ -51,17 +51,19 @@ class _CarouselWithDotsPageState extends State<CarouselWithDotsPage> {
         const Padding(
           padding: EdgeInsets.all(5),
         ),
-        CarouselSlider(
+        FlutterCarousel(
           items: imageSliders,
           options: CarouselOptions(
-              autoPlay: true,
-              enlargeCenterPage: true,
-              aspectRatio: 2.5,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
+            autoPlay: true,
+            enlargeCenterPage: true,
+            aspectRatio: 2.5,
+            onPageChanged: (index, _) {
+              setState(() {
+                _current = index;
+              });
+            },
+            showIndicator: false,
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

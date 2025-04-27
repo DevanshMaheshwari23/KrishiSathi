@@ -47,9 +47,9 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDS2zzScINzx0znRpHKiU5UPFWswpVvJco',
     appId: '1:419275667763:web:72fe32e59e81bcd203e646',
     messagingSenderId: '419275667763',
-    projectId: 'agrigenie-d174f',
-    authDomain: 'agrigenie-d174f.firebaseapp.com',
-    storageBucket: 'agrigenie-d174f.appspot.com',
+    projectId: 'krishi_sathi-d174f',
+    authDomain: 'krishi_sathi-d174f.firebaseapp.com',
+    storageBucket: 'krishi_sathi-d174f.appspot.com',
     measurementId: 'G-DB649HS5LN',
   );
 
@@ -57,27 +57,29 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyBIahAwROn-PNyJjRh4wQnvjQhXxrCaBn8',
     appId: '1:419275667763:android:6ff7ea73ca21d31803e646',
     messagingSenderId: '419275667763',
-    projectId: 'agrigenie-d174f',
-    storageBucket: 'agrigenie-d174f.appspot.com',
+    projectId: 'krishi_sathi-d174f',
+    storageBucket: 'krishi_sathi-d174f.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyD_AldHUgF_V15Q7IvkpVt1PGPltEkRwVQ',
     appId: '1:419275667763:ios:e345baaf2cbae66703e646',
     messagingSenderId: '419275667763',
-    projectId: 'agrigenie-d174f',
-    storageBucket: 'agrigenie-d174f.appspot.com',
-    iosClientId: '419275667763-i4gnqfeelh4n6m4g5aphjd26esdlg535.apps.googleusercontent.com',
-    iosBundleId: 'com.example.agrigenie',
+    projectId: 'krishi_sathi-d174f',
+    storageBucket: 'krishi_sathi-d174f.appspot.com',
+    iosClientId:
+        '419275667763-i4gnqfeelh4n6m4g5aphjd26esdlg535.apps.googleusercontent.com',
+    iosBundleId: 'com.example.krishi_sathi',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyD_AldHUgF_V15Q7IvkpVt1PGPltEkRwVQ',
     appId: '1:419275667763:ios:969016b5439b38bc03e646',
     messagingSenderId: '419275667763',
-    projectId: 'agrigenie-d174f',
-    storageBucket: 'agrigenie-d174f.appspot.com',
-    iosClientId: '419275667763-tgv51bpkkgbgr1mffftocre93qaego9k.apps.googleusercontent.com',
-    iosBundleId: 'com.example.agrigenie.RunnerTests',
+    projectId: 'krishi_sathi-d174f',
+    storageBucket: 'krishi_sathi-d174f.appspot.com',
+    iosClientId:
+        '419275667763-tgv51bpkkgbgr1mffftocre93qaego9k.apps.googleusercontent.com',
+    iosBundleId: 'com.example.krishi_sathi.RunnerTests',
   );
 }

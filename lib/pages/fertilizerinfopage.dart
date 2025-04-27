@@ -1,10 +1,10 @@
-import 'package:agrigenie/component/RoundedBox.dart';
-import 'package:agrigenie/pages/homepage.dart';
+import 'package:krishi_sathi/component/RoundedBox.dart';
+import 'package:krishi_sathi/services/language_service.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class FertilizerInfoPage extends StatelessWidget {
-  FertilizerInfoPage({Key? key});
+  const FertilizerInfoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +32,13 @@ class FertilizerInfoPage extends StatelessWidget {
         centerTitle: true,
         title: Image.asset(
           'assets/appbarlogo.png', // Replace with your logo image path
-          height: 30,
+          height: 45,
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
             onPressed: () {
-              // Handle notification button press
+              Navigator.pushNamed(context, '/notifications');
             },
           ),
         ],
@@ -51,8 +51,7 @@ class FertilizerInfoPage extends StatelessWidget {
             decoration: BoxDecoration(
               image: const DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://m.media-amazon.com/images/I/71yy+QZTCHL._SX466_.jpg"),
+                image: AssetImage('assets/appbarlogo.png'),
               ),
               boxShadow: [
                 BoxShadow(
@@ -110,8 +109,75 @@ class FertilizerInfoPage extends StatelessWidget {
             "Recommended Crops",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ).p16(),
-          const RecommandedCrop(),
+          const SimpleCropsList(),
         ]).p16(),
+      ),
+    );
+  }
+}
+
+// Simplified replacement for RecommandedCrop
+class SimpleCropsList extends StatelessWidget {
+  const SimpleCropsList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final crops = [
+      {"name": "Wheat", "image": "assets/appbarlogo.png"},
+      {"name": "Rice", "image": "assets/appbarlogo.png"},
+      {"name": "Maize", "image": "assets/appbarlogo.png"},
+    ];
+
+    return SizedBox(
+      height: 160,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: crops.length,
+        itemBuilder: (context, index) {
+          final crop = crops[index];
+          return Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Container(
+              width: 140,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: const Color(0xff14FF00)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      crop["image"]!,
+                      height: 100,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    crop["name"]!,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,0 +1,2 @@
+/Users/devanshmaheshwari/development/Krishi Sarthi copy/android/app/.cxx/Debug/2w5i1w68/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/devanshmaheshwari/development/Krishi Sarthi copy/android/app/.cxx/Debug/2w5i1w68/armeabi-v7a/CMakeFiles/edit_cache.dir

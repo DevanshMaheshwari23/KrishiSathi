@@ -1,10 +1,11 @@
-import 'package:agrigenie/firebase/auth.dart';
-import 'package:agrigenie/pages/signuppage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:krishi_sathi/firebase/auth.dart';
+import 'package:krishi_sathi/pages/signuppage.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
 class AgricultureLoginPage extends StatefulWidget {
+  const AgricultureLoginPage({super.key});
+
   @override
   State<AgricultureLoginPage> createState() => _AgricultureLoginPageState();
 }
@@ -37,7 +38,7 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/bg.jpg'),
             fit: BoxFit.cover,
@@ -54,7 +55,7 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                   'assets/logo.png',
                   height: 150,
                 ),
-                SizedBox(height: 40.0),
+                const SizedBox(height: 40.0),
                 TextFormField(
                   controller: _controllerEmail,
                   validator: (value) {
@@ -71,7 +72,7 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                     fillColor: Colors.white.withOpacity(0.7),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextFormField(
                   controller: _controllerPassword,
                   validator: (value) {
@@ -94,7 +95,7 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                     onPressed: () {
                       // Implement forgot password functionality here
                     },
-                    child: Text(
+                    child: const Text(
                       'Forgot Password?',
                       style: TextStyle(
                         color: Colors.green,
@@ -124,7 +125,7 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                               strokeWidth: 2,
                             ),
                           )
-                        : Text(
+                        : const Text(
                             'Login',
                             style: TextStyle(color: Colors.white),
                           ),
@@ -135,17 +136,17 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't have an account"),
+                      const Text("Don't have an account"),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AgricultureSignPage(),
+                              builder: (context) => const AgricultureSignPage(),
                             ),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(
                             color: Colors.green,
@@ -156,15 +157,15 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20.0),
-                Text(
+                const SizedBox(height: 20.0),
+                const Text(
                   'or login with',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -172,16 +173,16 @@ class _AgricultureLoginPageState extends State<AgricultureLoginPage> {
                       onPressed: () {
                         // Implement login with Google functionality here
                       },
-                      icon: Icon(UniconsLine.google),
-                      label: Text('Google'),
+                      icon: const Icon(UniconsLine.google),
+                      label: const Text('Google'),
                     ),
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                     ElevatedButton.icon(
                       onPressed: () {
                         // Implement login with Facebook functionality here
                       },
-                      icon: Icon(UniconsLine.facebook_f),
-                      label: Text('Facebook'),
+                      icon: const Icon(UniconsLine.facebook_f),
+                      label: const Text('Facebook'),
                     ),
                   ],
                 ),

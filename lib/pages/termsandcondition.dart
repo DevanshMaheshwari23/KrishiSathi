@@ -1,9 +1,11 @@
-import 'package:agrigenie/component/RoundedBox.dart';
+import 'package:krishi_sathi/component/RoundedBox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class TermsAndConditionsPage extends StatefulWidget {
+  const TermsAndConditionsPage({super.key});
+
   @override
   _TermsAndConditionsPageState createState() => _TermsAndConditionsPageState();
 }
@@ -43,7 +45,7 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               if (snapshot.hasData) {
                 return Markdown(data: snapshot.data!);
               }
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             },
           ),
         ),
