@@ -16,4 +16,9 @@ This repository contains the source code for the app. The app is designed to hel
 - Dart: The programming language used with Flutter.
 - Machine Learning and its Algorithms such as Decision tree and libraries like Tensorflow
 # KrishiSathi
-# KrishiSathi
+![App Screenshot] (./assests/s1.png)
+![App Screenshot] (./assests/s2.png)
+![App Screenshot] (./assests/s3.png)
+![App Screenshot] (./assests/s4.png)
+![App Screenshot] (./assests/s5.png)
+![App Screenshot] (./assests/s6.png)
